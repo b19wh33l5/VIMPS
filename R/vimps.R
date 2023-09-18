@@ -411,7 +411,29 @@ calc_metrics = function(dat, dep_var, cutoff, test_type, metrics, input_path=NUL
 # Run entire process
 #*******************************************************************************
 
-#' Calculate variable importance for a dataset
+#' @title calc_vimps
+#'
+#' @description Calculate the variable importance of the domains for a given
+#'    dataset
+#'
+#' @param dat A dataframe of data
+#' @param dep_var The dependent variable in the dat
+#' @param doms A dataframe of the variables in dat and the domain they belong to
+#' @param calc_ko True/False to calculate the knock_off importance
+#' @param calc_dom True/False to calculate the domain importance
+#' @param num_folds The number of folds to use while calculating the classification
+#'    threshold for predictions
+#' @param num_kos The number of sets of knock off variables to create
+#' @param mtry The mtry value to use in the random forests
+#' @param min.node.size The min.node.size value to use in the random forests
+#' @param iterations Number of trees to build while calculating variable importance
+#' @param ko_path Where to store the knock off variable sets
+#' @param results_path Where to store the intermediary results for calculating
+#'    variable importance
+#' @param output_file_ko Where to store the results of the knock off variable importance
+#' @param output_file_dom Where to store the results of the domain variable importance
+#'
+#' @return Object with variable importance results
 #'
 #' @export
 calc_vimps = function(dat, dep_var, doms, calc_ko=TRUE, calc_dom=FALSE,
@@ -488,8 +510,8 @@ calc_vimps = function(dat, dep_var, doms, calc_ko=TRUE, calc_dom=FALSE,
 #' Visualize results of the variable importance
 #'
 #' @export
-graph_results = function(results, object) {
-  df = results[[object]]
+graph_results = function(results) {
+  df = results$ko_importance
   df$importance = as.numeric(df$importance)
 
   ggplot2::ggplot(data=df, ggplot2::aes(x=importance, y=reorder(variable, importance))) +
