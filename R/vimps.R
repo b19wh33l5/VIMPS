@@ -370,7 +370,8 @@ calc_metrics = function(dat, dep_var, cutoff, test_type, metrics, input_path=NUL
   pattern = paste("*_", test_type, ".csv", sep="")
   files = list.files(input_path, pattern=pattern)
 
-  results = matrix(nrow=0, ncol=7)
+  results = matrix(nrow=0, ncol=6)
+  var_names = c()
 
   # Iterate over our result files
   for (i in 1:length(files)) {
@@ -394,13 +395,14 @@ calc_metrics = function(dat, dep_var, cutoff, test_type, metrics, input_path=NUL
     sens = tp/(tp+fn)
     spec = tn/(tn+fp)
 
-    var_name = gsub(substr(pattern, 2, nchar(pattern)), "", files[i])
-    results = rbind(results, c(var_name, acc, sens, spec, metrics$acc-acc, metrics$sens-sens, metrics$spec-spec))
+    var_names = append(var_names, gsub(substr(pattern, 2, nchar(pattern)), "", files[i]))
+    results = rbind(results, c(acc, sens, spec, metrics$acc-acc, metrics$sens-sens, metrics$spec-spec))
   }
 
   # Convert results to Dataframe and save to disk
   results = data.frame(results)
-  colnames(results) = c("variable", "acc", "sens", "spec", "delta_acc", "delta_sens", "delta_spec")
+  colnames(results) = c("acc", "sens", "spec", "delta_acc", "delta_sens", "delta_spec")
+  results$variable = var_names
   write.csv(results, output_file, row.names=FALSE)
 
   return(results)
@@ -517,7 +519,6 @@ calc_vimps = function(dat, dep_var, doms, calc_ko=TRUE, calc_dom=FALSE,
 #' @export
 graph_results = function(results, object) {
   df = results[[object]]
-  df$importance = as.numeric(df$importance)
 
   ggplot2::ggplot(data=df, ggplot2::aes(x=importance, y=reorder(variable, importance))) +
     ggplot2::geom_point() +
