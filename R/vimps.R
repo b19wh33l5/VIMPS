@@ -507,11 +507,16 @@ calc_vimps = function(dat, dep_var, doms, calc_ko=TRUE, calc_dom=FALSE,
 # Visualize Results
 #*******************************************************************************
 
-#' Visualize results of the variable importance
+#' @title graph_results
+#'
+#' @description Graph the variable importance results from calc_vimps
+#'
+#' @param results The results from calc_vimps
+#' @param object Which object from results to use for graphing results
 #'
 #' @export
-graph_results = function(results) {
-  df = results$ko_importance
+graph_results = function(results, object) {
+  df = results[[object]]
   df$importance = as.numeric(df$importance)
 
   ggplot2::ggplot(data=df, ggplot2::aes(x=importance, y=reorder(variable, importance))) +

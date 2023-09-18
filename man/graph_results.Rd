@@ -2,10 +2,15 @@
 % Please edit documentation in R/vimps.R
 \name{graph_results}
 \alias{graph_results}
-\title{Visualize results of the variable importance}
+\title{graph_results}
 \usage{
-graph_results(results)
+graph_results(results, object)
+}
+\arguments{
+\item{results}{The results from calc_vimps}
+
+\item{object}{Which object from results to use for graphing results}
 }
 \description{
-Visualize results of the variable importance
+Graph the variable importance results from calc_vimps
 }
