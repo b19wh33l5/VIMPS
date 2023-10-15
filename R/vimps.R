@@ -1,3 +1,6 @@
+#' @importFrom stats as.formula predict reorder
+#' @importFrom utils read.csv write.csv write.table
+
 #*******************************************************************************
 #
 # The functions to drive execution
@@ -426,8 +429,8 @@ calc_metrics = function(dat, dep_var, cutoff, test_type, metrics, input_path=NUL
 #' @param num_folds The number of folds to use while calculating the classification
 #'    threshold for predictions
 #' @param num_kos The number of sets of knock off variables to create
-#' @model_all The model to use in full ensemble mode in calculations
-#' @model_subset The model to use sigularly for building ensembles from
+#' @param model_all The model to use in full ensemble mode in calculations
+#' @param model_subset The model to use sigularly for building ensembles from
 #' @param mtry The mtry value to use in the random forests
 #' @param min.node.size The min.node.size value to use in the random forests
 #' @param iterations Number of trees to build while calculating variable importance

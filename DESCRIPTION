@@ -6,7 +6,7 @@ Author: Meredith Wallace
 Maintainer: Meredith Wallace <lotzmj@upmc.edu>
 Description: Methods for calculating the variable or domain level importance
   of a dataset using knock off or domain removal techniques
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
