@@ -426,8 +426,7 @@ calc_metrics = function(dat, dep_var, cutoff, test_type, metrics, input_path=NUL
 #' @param doms A dataframe of the variables in dat and the domain they belong to
 #' @param calc_ko True/False to calculate the knock_off importance
 #' @param calc_dom True/False to calculate the domain importance
-#' @param num_folds The number of folds to use while calculating the classification
-#'    threshold for predictions
+#' @param num_folds The number of folds to use while calculating the classification threshold for predictions
 #' @param num_kos The number of sets of knock off variables to create
 #' @param model_all The model to use in full ensemble mode in calculations
 #' @param model_subset The model to use sigularly for building ensembles from
@@ -435,8 +434,7 @@ calc_metrics = function(dat, dep_var, cutoff, test_type, metrics, input_path=NUL
 #' @param min.node.size The min.node.size value to use in the random forests
 #' @param iterations Number of trees to build while calculating variable importance
 #' @param ko_path Where to store the knock off variable sets
-#' @param results_path Where to store the intermediary results for calculating
-#'    variable importance
+#' @param results_path Where to store the intermediary results for calculating variable importance
 #' @param output_file_ko Where to store the results of the knock off variable importance
 #' @param output_file_dom Where to store the results of the domain variable importance
 #'

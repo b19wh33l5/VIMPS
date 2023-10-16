@@ -34,10 +34,13 @@ calc_vimps(
 
 \item{calc_dom}{True/False to calculate the domain importance}
 
-\item{num_folds}{The number of folds to use while calculating the classification
-threshold for predictions}
+\item{num_folds}{The number of folds to use while calculating the classification threshold for predictions}
 
 \item{num_kos}{The number of sets of knock off variables to create}
+
+\item{model_all}{The model to use in full ensemble mode in calculations}
+
+\item{model_subset}{The model to use sigularly for building ensembles from}
 
 \item{mtry}{The mtry value to use in the random forests}
 
@@ -47,8 +50,7 @@ threshold for predictions}
 
 \item{ko_path}{Where to store the knock off variable sets}
 
-\item{results_path}{Where to store the intermediary results for calculating
-variable importance}
+\item{results_path}{Where to store the intermediary results for calculating variable importance}
 
 \item{output_file_ko}{Where to store the results of the knock off variable importance}
 
