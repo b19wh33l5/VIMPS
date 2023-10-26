@@ -521,6 +521,7 @@ calc_vimps = function(dat, dep_var, doms, calc_ko=TRUE, calc_dom=FALSE,
 #'
 #' @export
 graph_results = function(results, object) {
+  importance, variable <- NULL
   df = results[[object]]
 
   ggplot2::ggplot(data=df, ggplot2::aes(x=importance, y=reorder(variable, importance))) +

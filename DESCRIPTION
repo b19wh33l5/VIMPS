@@ -4,7 +4,7 @@ Title: Calculate Variable and Domain Level Variable Importance
 Version: 0.1.0
 Author: Meredith Wallace
 Maintainer: Meredith Wallace <lotzmj@upmc.edu>
-Description: This package contains methods for calculating the variable or domain level importance of a dataset using knock off or domain removal techniques.
+Description: Variable or domain level importance of a dataset using knock off or domain removal techniques.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
